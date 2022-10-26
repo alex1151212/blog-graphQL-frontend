@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import Login from "../src/components/login";
+import Layout from "../src/components/login";
+import Unauthorized from "../src/components/unauthorized";
+import RequireAuth from "../src/components/requireAuth";
+import Test from "../src/components/test";
+interface IProps {}
 
-function App() {
+const App: React.FC<IProps> = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="test" element={<Test />} />
+        {/* <Route path="login" element={<Login />} /> */}
+        {/* <Route path="unauthorized" element={<Unauthorized />} /> */}
+
+        {/* <Route element={<RequireAuth />}> */}
+
+        {/* </Route> */}
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
